@@ -1,0 +1,55 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sucesso em seu envio!</title>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <link rel="stylesheet" href="{% static 'css/style_indiqueAirdrop.css' %}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    </head>
+{% block content %}
+    <header>
+        <div class="logo_header">
+            <img src="{% static 'assets/images/logo3.png' %}" alt="Logo AirDrop Hunter">
+    </div>
+    <div class="navmenu_header">
+        <ul>
+            <li><a href="{% url 'airdrop_list' %}">Airdrops</a></li>
+            <li><a href="{% url 'indique_airdrop' %}">Indique um Airdrop</a></li>
+            <li><a href="{% url 'quem_somos' %}">Quem Somos</a></li>
+        </ul>
+    </div>
+    <div class="login_header">
+        {% if user.is_authenticated %}
+            <div class="user-dropdown">
+                <div class="user-info">
+                    <i class="fa fa-user"></i> {{ user.username }}
+                </div>
+                <div class="dropdown-content">
+                    <a href="{% url 'logout' %}">Logout</a>
+                </div>
+            </div>
+        {% else %}
+            <a href="{% url 'login' %}" class="auth-button">
+                <i class="fa fa-user"></i> Login
+            </a>
+            <a href="{% url 'register' %}" class="auth-button">
+                <i class="fa fa-pen"></i> Register
+            </a>
+        {% endif %}
+    </div>
+</header>
+<body>
+
+<div class="sucesso-container">
+    <h1>Obrigado por indicar um airdrop!</h1>
+    <p>Sua indicação foi recebida com sucesso.</p>
+    <a href="{% url 'indique_airdrop' %}" class="btn-voltar">Indicar outro airdrop</a>
+    <a href="{% url 'airdrop_list' %}" class="btn-voltar">Voltar ao inicio</a>
+</div>
+{% endblock %}
+</body>
+</html>
