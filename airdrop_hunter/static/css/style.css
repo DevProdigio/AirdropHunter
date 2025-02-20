@@ -1,0 +1,548 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body{
+    font-family: 'Roboto', sans-serif;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color:rgb(25, 218, 153);
+    padding: 0.8rem 2rem;
+    position: relative;
+}
+
+
+.logo_header img{
+    max-width: 100%;
+    width: 12rem;
+}
+
+.navmenu_header{
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.navmenu_header ul{
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    padding: 0;
+}
+
+.navmenu_header a{
+    text-decoration: none;
+    color: white;
+}
+
+.navmenu_header li{
+    display: inline-block;
+    color: white;
+    font-size: 1rem;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 1rem;
+    transition: color 0.2s ease;
+}
+
+.navmenu_header li:hover {
+    color: #ffd200;
+}
+
+.navmenu_header li::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: white;
+    transition: width 1s ease;
+}
+
+.navmenu_header li:hover {
+    color: #ffd200; /* Cor muda rapidamente */
+}
+
+
+/* Estilos para o container do login */
+.login_header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Estilos para os botões de login e registro */
+.auth-button, .login_header button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #19da99;
+    color: #fff;
+    font-size: 1rem;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.auth-button:hover, .login_header button:hover {
+    background-color: #15b880;
+    transform: scale(1.05);
+}
+
+/* Estilos para o dropdown do usuário logado */
+.user-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.user-info {
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    background-color: #19da99;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.user-info:hover {
+    background-color: #15b880;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    min-width: 120px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    overflow: hidden;
+    z-index: 999; /* Aumente o z-index se necessário */
+    right: 0;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+/* Mostrar o dropdown ao passar o mouse */
+.user-dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.menu-toggle{
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: white;
+}
+
+@media (max-width: 900px) {
+    header {
+        padding: 0.8rem 1rem;
+    }
+
+    .navmenu_header ul {
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background-color: rgb(25, 218, 153);
+        width: 100%;
+        display: none;
+        padding: 1rem 0;
+        text-align: center;
+    }
+
+    .navmenu_header ul a {
+        display: block;
+        padding: 1rem;
+        width: 100%;
+    }
+
+    .navmenu_header ul.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .login_header {
+        flex-direction: column;
+        gap: 5px;
+    }
+}
+
+/* Ajustes para telas menores */
+@media (max-width: 500px) {
+    .logo_header img {
+        width: 9rem;
+    }
+
+    .auth-button {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.8rem;
+    }
+}
+
+.link_log{
+    text-decoration: none;
+}
+
+.login_header button:hover{
+    background-color: #dfb707;
+    transform: scale(1.05);
+    transition: background-color 350ms, transform 200ms;
+}
+
+.login_header button:active {
+    transform: scale(0.95);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo para a tabela de airdrop */
+
+.airdrops-section{
+    padding: 2rem;
+}
+
+.airdrops-section h1{
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+
+.filters{
+    background-color: #f9f9f9;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+.filters form{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+}
+
+.filters label{
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.filters input[type="date"], .filters select{
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    width: 100%;
+    max-width: 200px;
+    background-color: #fff;
+    transition: border-color 0.3s ease;
+}
+
+.filters input[type="date"]:focus,
+.filters select:focus {
+    border-color: #19da99;
+    outline: none;
+}
+
+.filters button[type="submit"] {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #19da99;
+    color: #fff;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.filters button[type="submit"]:hover {
+    background-color: #15b880;
+}
+
+@media (max-width: 768px) {
+    .airdrops-section h1 {
+        font-size: 1.5rem; /* Reduz o título */
+    }
+
+    .filters {
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .filters form {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+
+    .filters input[type="date"], .filters select {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .filters button[type="submit"] {
+        width: 100%;
+        font-size: 1rem;
+    }
+
+    .airdrops-table th,
+    .airdrops-table td {
+        font-size: 0.8rem; /* Reduz o tamanho da fonte na tabela */
+    }
+
+    .ver-button {
+        width: 100%;
+        padding: 0.8rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .airdrops-section h1 {
+        font-size: 1.2rem;
+    }
+
+    .filters label {
+        font-size: 0.8rem; /* Menor tamanho de fonte */
+    }
+
+    .filters input[type="date"], .filters select {
+        font-size: 0.8rem;
+    }
+
+    .filters button[type="submit"] {
+        font-size: 1rem;
+    }
+}
+
+/* Para melhorar a visualização em dispositivos móveis */
+@media (max-width: 320px) {
+    .airdrops-table th,
+    .airdrops-table td {
+        padding: 0.8rem;
+        font-size: 0.75rem;
+    }
+
+    .filters {
+        padding: 1rem;
+    }
+
+    .filters input[type="date"], .filters select,
+    .filters button[type="submit"] {
+        font-size: 0.8rem;
+    }
+
+    .ver-button {
+        padding: 0.5rem;
+    }
+}
+.airdrops-table{
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.airdrops-table th,
+.airdrops-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.airdrops-table th{
+    background-color: #19da99;
+    color: #fff;
+    font-weight: bold;
+}
+
+.airdrops-table tbody tr:hover {
+    background-color: #f9f9f9;
+}
+
+.airdrops-table td strong {
+    color: #19da99;
+}
+
+.ver-button {
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    border: none;
+    background-color: #19da99;
+    color: #fff;
+    cursor: pointer;
+    font-size: 0.9rem;
+    display: block;
+    
+}
+.ver-button:hover {
+    background-color: #15b880;
+}
+
+footer {
+    background-color: #1c1c1c;
+    color: white;
+    padding: 2rem 0;
+    text-align: center;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-logo img {
+    width: 150px;
+}
+
+.footer-social{
+    text-align: left;
+    margin-top: 20px;
+}
+
+.footer-social a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+}
+
+.footer-social i {
+    font-size: 1.2rem;
+}
+
+/* GitHub */
+.btn-rede-social.github {
+    background-color: #333;
+    color: white;
+}
+
+.btn-rede-social.github:hover {
+    background-color: #555;
+}
+
+/* LinkedIn */
+.btn-rede-social.linkedin {
+    background-color: #0077b5;
+    color: white;
+}
+
+.btn-rede-social.linkedin:hover {
+    background-color: #005f91;
+}
+
+/* YouTube */
+.btn-rede-social.youtube {
+    background-color: #ff0000;
+    color: white;
+}
+
+.btn-rede-social.youtube:hover {
+    background-color: #cc0000;
+}
+
+.footer-links {
+    text-align: left;
+}
+
+.footer-links li{
+    font-weight: bold;
+}
+
+.footer-links li a{
+    font-weight: 400;
+}
+
+.footer-links h3, .footer-social h3 {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.footer-links ul, .footer-social ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links ul li, .footer-social ul li {
+    margin-bottom: 8px;
+}
+
+.footer-links ul li a, .footer-social ul li a {
+    text-decoration: none;
+    color: white;
+    transition: color 0.3s;
+}
+
+.footer-links ul li a:hover {
+    color: #19da99;
+}
+
+.footer-social ul {
+    display: flex;
+    gap: 10px;
+}
+
+.footer-social ul li a img {
+    width: 24px;
+    transition: transform 0.3s;
+}
+
+.footer-social ul li a:hover img {
+    transform: scale(1.2);
+}
+
+.footer-bottom {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .footer-links, .footer-social {
+        margin-top: 20px;
+    }
+}
+
+
