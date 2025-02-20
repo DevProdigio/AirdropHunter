@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 import os
 from pathlib import Path
 
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -26,7 +28,7 @@ SECRET_KEY = 'django-insecure-y&g((xeeo1mee*1z1&8%-m$z+w!h2qjk(%6wuu2th0)yrz$g4d
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -80,9 +82,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'airdrophunterdb',
-        'USER': 'Prodigio',
-        'PASSWORD': '3064',
-        'HOST': 'localhost',
+        'USER': 'airdrophunterdb_user',
+        'PASSWORD': 'w1gI9LjUH8wx9iXJislUx12mHeQgRUz2',
+        'HOST': 'dpg-cur7dp1opnds73c5116g-a.oregon-postgres.render.com',
         'PORT': '5432',
     }
 }
